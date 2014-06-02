@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  get 'users/new'
 
-  get 'static_pages/help'
+  # http://0.0.0.0:3000/static_pages/home
+  #get 'static_pages/home'
+  #get 'static_pages/help'
+  #get "static_pages/about"
+  #get "static_pages/contact"
 
-  get "static_pages/about"
-
-  get "static_pages/contact"
+  # Remove ../static_pages/.. from the URL --> http://0.0.0.0:3000/
+  root  'static_pages#home'
+  match '/signup',  to: 'users#new',            via: 'get'
+  # http://0.0.0.0:3000/help
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  # http://0.0.0.0:3000/about
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  # http://0.0.0.0:3000/contact
+  match '/contact', to: 'static_pages#contact', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

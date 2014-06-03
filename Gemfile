@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 # usar bootstrap 2 en lugar de la version actual 3
 gem 'bootstrap-sass', '2.3.2.2'
 gem 'sprockets'
+# password
+gem 'bcrypt'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

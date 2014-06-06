@@ -7,9 +7,13 @@ Rails.application.routes.draw do
   #get "static_pages/contact"
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
   # Remove ../static_pages/.. from the URL --> http://0.0.0.0:3000/
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # http://0.0.0.0:3000/help
   match '/help',    to: 'static_pages#help',    via: 'get'
   # http://0.0.0.0:3000/about
